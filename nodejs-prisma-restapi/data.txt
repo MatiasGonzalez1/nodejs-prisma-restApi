@@ -1,0 +1,1 @@
+#Prisma Prisma es un orm que ayuda como módulo para comunicarnos con la bd.
