@@ -14,6 +14,9 @@ router.get('/products', async (req, res)=>{
     where:{
       id: parseInt(req.params.id)
     },
+    include:{
+      category: true,
+    }
   });
 
   if(!oneProduct) return res.status(404).json({error: "Product not found"});
@@ -38,4 +41,14 @@ router.get('/products', async (req, res)=>{
   return res.json(deleteOneProduct);
  })
 
+
+ router.put('/products/:id', async (req, res)=>{
+  const updateProduct = await prisma.product.update({
+    where:{
+      id: parseInt(req.params.id)
+    },
+    data:req.body
+  })
+  return res.json(updateProduct)
+ })
 export default router;
