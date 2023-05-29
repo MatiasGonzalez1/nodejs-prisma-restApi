@@ -15,6 +15,8 @@ router.get('/products', async (req, res)=>{
       id: parseInt(req.params.id)
     },
   });
+
+  if(!oneProduct) return res.status(404).json({error: "Product not found"});
   return res.json(oneProduct);
  })
 
@@ -25,5 +27,15 @@ router.get('/products', async (req, res)=>{
   res.json(newProduct)
  });
 
+ router.delete('/products/:id', async (req, res)=>{
+  const deleteOneProduct = await prisma.product.delete({
+    where:{
+      id: parseInt(req.params.id)
+    },
+  });
+
+  if(!deleteOneProduct) return res.status(404).json({error: "Product not found"});
+  return res.json(deleteOneProduct);
+ })
 
 export default router;
