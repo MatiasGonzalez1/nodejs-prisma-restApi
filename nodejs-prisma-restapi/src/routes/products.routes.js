@@ -9,10 +9,19 @@ router.get('/products', async (req, res)=>{
   res.json(products)
  })
 
+ router.get('/products/:id', async (req, res)=>{
+  const oneProduct = await prisma.product.findFirst({
+    where:{
+      id: parseInt(req.params.id)
+    },
+  });
+  return res.json(oneProduct);
+ })
+
  router.post('/products', async (req, res)=>{
   const newProduct = await prisma.product.create({
-    data:req.body
-  })
+    data:req.body,
+  });
   res.json(newProduct)
  });
 
