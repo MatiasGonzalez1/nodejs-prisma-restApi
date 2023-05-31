@@ -14,6 +14,9 @@ const app = express();
 //de esta forma puede ser consumida la app desde cualquier origen
 app.use(cors());
 
+//recibe datos en formato json por body
+app.use(express.json())
+
 app.use(router);
 
 db().then(()=>{
