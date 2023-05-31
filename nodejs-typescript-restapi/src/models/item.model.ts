@@ -4,7 +4,10 @@ import {Schema, Types, model, Model} from "mongoose";
 import { Car } from "../interface/car.interface";
 
 const ItemSchema = new Schema<Car>(
-  {
+  {name:{
+    type:String,
+    required:true,
+  },
     color:{
       type:String,
       required:true,
