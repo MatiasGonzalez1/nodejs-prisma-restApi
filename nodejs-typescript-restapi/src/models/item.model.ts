@@ -7,20 +7,29 @@ const ItemSchema = new Schema<Car>(
   {
     color:{
       type:String,
+      required:true,
     },
     gas:{
       //es de tipo string pero los valores permitidos seran los enum
       type:String,
-      enum:["gasoline", "electric"]
+      enum:["gasoline", "electric"],
+      required:true,
+
     },
     year:{
       type:Number,
+      required:true,
+
     },
     description:{
       type:String,
+      required:true,
+
     },
     price:{
       type:Number,
+      required:true,
+
     },
   },
   {
