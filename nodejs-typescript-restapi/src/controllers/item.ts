@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 import { handleHttp } from "../utils/error.handle"
 import { insertCar, getCars, getCar, updateCar, deleteCar } from "../services/item.service"
-import ItemModel from "../models/item.model"
+import ItemModel from "../models/item"
 
 const getItem =  async ({params}: Request, res: Response)=>{
   try {

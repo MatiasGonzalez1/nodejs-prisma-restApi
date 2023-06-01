@@ -8,7 +8,7 @@ const router = Router();
 
 //funcion que recibe el nombre del archivo y quita la extensión
 const cleanFilename = (filename:string)=>{
-  const file = filename.split('.').shift()
+  const file = filename.split('.').shift();
   return file;
 }
 
@@ -18,8 +18,8 @@ readdirSync(PATH_ROUTER).filter((filename)=>{
   if(cleanName !== "index"){
     import(`./${cleanName}`).then((moduleRouter)=>{
       router.use(`/${cleanName}`, moduleRouter.router);
-    })
+    });
   }
-})
+});
 
 export {router};

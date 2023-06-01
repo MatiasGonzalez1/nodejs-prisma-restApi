@@ -1,5 +1,6 @@
 import { Car } from "../interface/car.interface";
-import ItemModel from "../models/item.model";
+import ItemModel from "../models/item";
+
 
 //CREATE ITEM
   const insertCar = async (item:Car)=>{
